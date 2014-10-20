@@ -20,11 +20,11 @@ void send();
 //
 //
 
-#include "c:\program Files\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
-#include "c:\program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
-#include "C:\Users\aasmundo\byggeren\node 2 sketches\node2\node2.ino"
-#include "C:\Users\aasmundo\byggeren\node 2 sketches\node2\SPI.cpp"
-#include "C:\Users\aasmundo\byggeren\node 2 sketches\node2\SPI.h"
-#include "C:\Users\aasmundo\byggeren\node 2 sketches\node2\mcp_can.cpp"
-#include "C:\Users\aasmundo\byggeren\node 2 sketches\node2\mcp_can.h"
-#include "C:\Users\aasmundo\byggeren\node 2 sketches\node2\mcp_can_dfs.h"
+#include "c:\Program Files\arduino\hardware\arduino\variants\mega\pins_arduino.h" 
+#include "c:\Program Files\arduino\hardware\arduino\cores\arduino\arduino.h"
+#include "C:\Users\jonkol\Documents\byggeren\node 2 sketches\node2\node2.ino"
+#include "C:\Users\jonkol\Documents\byggeren\node 2 sketches\node2\SPI.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node 2 sketches\node2\SPI.h"
+#include "C:\Users\jonkol\Documents\byggeren\node 2 sketches\node2\mcp_can.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node 2 sketches\node2\mcp_can.h"
+#include "C:\Users\jonkol\Documents\byggeren\node 2 sketches\node2\mcp_can_dfs.h"

@@ -50,13 +50,13 @@ void loop()
       Serial.println();
 	  send();
     }                       // send data per 100ms
-	delay(100);
+	delay(500);
 	digitalWrite(53, LOW);
 	SPI.transfer(0x03);
 	SPI.transfer(0x2d);
 	tall = SPI.transfer(0x00);
 	digitalWrite(53, HIGH);
-	//Serial.print(tall);
+	Serial.print(tall);
   
 }
 
