@@ -127,16 +127,11 @@ boolean MCP2515::initCAN(int baudConst)
   SPI.begin();
 
   pinMode(SLAVESELECT, OUTPUT);
- 
   digitalWrite(SLAVESELECT,LOW);
   SPI.transfer(RESET); //Reset cmd
   digitalWrite(SLAVESELECT,HIGH);
   //Read mode and make sure it is config
   delay(100);
-  writeReg(CANINTE, 0b00000011);
-  writeRegBit(RXB0CTRL,6, 1);
-  writeRegBit(RXB0CTRL,5, 1);
-  //writeReg(CANINTF, 0x00);
   mode = readReg(CANSTAT) >> 5;
   if(mode != 0b100) 
     return false;
@@ -197,18 +192,15 @@ boolean MCP2515::setCANNormalMode(boolean singleShot)
 
   byte settings;
   byte mode;
-  /* OMA edit, setter til loopback mode	
+
   settings = 0b00000111 | (singleShot << 3);
-  */
-  settings = 0b01000111;
+
   writeReg(CANCTRL,settings);
   //Read mode and make sure it is normal
-  
-  /* OMA edit
   mode = readReg(CANSTAT) >> 5;
   if(mode != 0)
     return false;
-  */
+
   return true;
 }
 
@@ -297,7 +289,7 @@ boolean MCP2515::transmitCANMessage(CANMSG msg, unsigned long timeout)
 {
   unsigned long startTime, endTime;
   boolean sentMessage;
-  uint8_t val;
+  unsigned short val;
   int i;
   unsigned short standardID = 0;
 
@@ -348,7 +340,6 @@ boolean MCP2515::transmitCANMessage(CANMSG msg, unsigned long timeout)
   writeRegBit(TXB0CTRL,TXREQ,1);
 
   sentMessage = false;
-  
   while(millis() < endTime)
   {
     val = readReg(CANINTF);
@@ -358,12 +349,13 @@ boolean MCP2515::transmitCANMessage(CANMSG msg, unsigned long timeout)
       break;
     }
   }
+	Serial.print(readReg(EFLG));
   //Abort the send if failed
   writeRegBit(TXB0CTRL,TXREQ,0);
-  Serial.print(" ");
+
   //And clear write interrupt
   writeRegBit(CANINTF,TX0IF,0);
-	Serial.print(readReg(0x60));
+
   return sentMessage;
 }
 
@@ -462,3 +454,4 @@ long MCP2515::queryOBD(byte code)
 
   return val;
 }
+

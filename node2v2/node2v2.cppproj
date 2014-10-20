@@ -221,6 +221,12 @@
     <Compile Include="MCP2515.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="SPI.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Visual Micro\.node2v2.vsarduino.h">
       <SubType>compile</SubType>
     </Compile>
