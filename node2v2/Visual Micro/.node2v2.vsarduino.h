@@ -21,10 +21,10 @@ void joystick_printer();
 //
 //
 
-#include "c:\program Files\arduino\hardware\arduino\variants\mega\pins_arduino.h" 
-#include "c:\program Files\arduino\hardware\arduino\cores\arduino\arduino.h"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\node2v2.ino"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\MCP2515.cpp"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\MCP2515.h"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\SPI.cpp"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\SPI.h"
+#include "C:\Program Files\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
+#include "C:\Program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\node2v2.ino"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\MCP2515.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\MCP2515.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\SPI.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\SPI.h"
