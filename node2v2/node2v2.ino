@@ -1,4 +1,5 @@
 #include "MCP2515.h"
+#include "Servo.h" 
 
 
 struct MCP2515 CAN;
@@ -6,6 +7,27 @@ CANMSG melding;
 CANMSG melding2;
 unsigned long lang = 0; 
 
+int pos = 0;    // variable to store the servo position 
+Servo myservo;  // create servo object to control a servo 
+
+int joy_to_pos()
+{
+	CAN.receiveCANMessage(&melding,1000);
+	int temp = (int) melding.data[1];
+	Serial.print(temp);
+	Serial.print(", ");
+	
+	temp = temp * 36;
+
+	temp = temp / 51;
+
+	if(temp < 93 && temp > 87)
+	{
+		temp = 90;
+	}
+
+	return temp;
+}
 
 void CAN_data_printer()
 {
@@ -58,13 +80,22 @@ void setup()
   {
 	melding.data[i] = 7 - i;
   }
+  
+ myservo.attach(9);  // attaches the servo on pin 9 to the servo object 
+
 }
 
 void loop()
 {
+
   if(digitalRead(19)==0)
   {
-    joystick_printer();
+	pos = joy_to_pos();
+	Serial.println(pos);
+	myservo.write(pos); 
   }
+  
+
+  
   
 }

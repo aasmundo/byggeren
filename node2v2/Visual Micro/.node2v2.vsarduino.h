@@ -16,6 +16,7 @@
 #define __cplusplus
 extern "C" void __cxa_pure_virtual() {;}
 
+int joy_to_pos();
 void CAN_data_printer();
 void joystick_printer();
 //
@@ -28,3 +29,5 @@ void joystick_printer();
 #include "C:\Users\jonkol\Documents\byggeren\node2v2\MCP2515.h"
 #include "C:\Users\jonkol\Documents\byggeren\node2v2\SPI.cpp"
 #include "C:\Users\jonkol\Documents\byggeren\node2v2\SPI.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\Servo.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\Servo.h"
