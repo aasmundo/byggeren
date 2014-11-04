@@ -16,6 +16,7 @@
 #define __cplusplus
 extern "C" void __cxa_pure_virtual() {;}
 
+int motor_control(uint8_t number);
 int joy_to_pos();
 void CAN_data_printer();
 void maal();
@@ -32,3 +33,9 @@ void joystick_printer();
 #include "C:\Users\aasmundo\Documents\byggeren\node2v2\SPI.h"
 #include "C:\Users\aasmundo\Documents\byggeren\node2v2\Servo.cpp"
 #include "C:\Users\aasmundo\Documents\byggeren\node2v2\Servo.h"
+#include "C:\Users\aasmundo\Documents\byggeren\node2v2\Wire.cpp"
+#include "C:\Users\aasmundo\Documents\byggeren\node2v2\Wire.h"
+#include "C:\Users\aasmundo\Documents\byggeren\node2v2\max520.cpp"
+#include "C:\Users\aasmundo\Documents\byggeren\node2v2\max520.h"
+#include "C:\Users\aasmundo\Documents\byggeren\node2v2\twi.c"
+#include "C:\Users\aasmundo\Documents\byggeren\node2v2\twi.h"

@@ -118,7 +118,7 @@
     </ToolchainSettings>
     <VisualMicroSettings>
       <VisualMicroSettings>
-        <arduino.upload.port>COM10</arduino.upload.port>
+        <arduino.upload.port>COM11</arduino.upload.port>
         <arduino.board.name>mega2560</arduino.board.name>
         <arduino.board.desc>Arduino Mega 2560 or Mega ADK</arduino.board.desc>
         <arduino.board.property_bag>name=Arduino Mega 2560 or Mega ADK
@@ -263,7 +263,7 @@ build.arch=AVR
     </ToolchainSettings>
     <VisualMicroSettings>
       <VisualMicroSettings>
-        <arduino.upload.port>COM10</arduino.upload.port>
+        <arduino.upload.port>COM11</arduino.upload.port>
         <arduino.board.name>mega2560</arduino.board.name>
         <arduino.board.desc>Arduino Mega 2560 or Mega ADK</arduino.board.desc>
         <arduino.board.property_bag>name=Arduino Mega 2560 or Mega ADK
@@ -337,6 +337,12 @@ build.arch=AVR
     <Folder Include="Visual Micro\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="max520.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="max520.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCP2515.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -349,6 +355,12 @@ build.arch=AVR
     <Compile Include="SPI.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="twi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="twi.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Visual Micro\.node2v2.vsarduino.h">
       <SubType>compile</SubType>
     </Compile>
@@ -356,6 +368,12 @@ build.arch=AVR
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Visual Micro\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Wire.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Wire.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

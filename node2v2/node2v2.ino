@@ -1,5 +1,6 @@
 #include "MCP2515.h"
 #include "Servo.h" 
+#include "max520.h"
 
 
 struct MCP2515 CAN;
@@ -12,6 +13,27 @@ Servo myservo;  // create servo object to control a servo
 
 uint8_t goal = 0;
 unsigned long counter = 0;
+
+int motor_control(uint8_t number)
+{
+	uint8_t temp = number;
+	Serial.print(temp);
+	if(number < 128)
+	{
+		digitalWrite(A6, HIGH);
+		temp = 127 - temp;
+		temp += temp;
+		
+	}else
+	{
+		digitalWrite(A6, LOW);
+		temp = temp - 128;
+		temp += temp;
+	}
+	Serial.print(", ");
+	Serial.println(temp);
+	max520_set_value(temp);
+}
 
 int joy_to_pos()
 {
@@ -101,7 +123,7 @@ void setup()
   }
   
  myservo.attach(9);  // attaches the servo on pin 9 to the servo object 
-
+ max520_init();
 }
 
 void loop()
@@ -113,8 +135,9 @@ void loop()
 	//Serial.println(pos);
 	myservo.write(pos); 
 	maal();
+	motor_control(melding.data[0]);
   }
-
+	
   
 
   
