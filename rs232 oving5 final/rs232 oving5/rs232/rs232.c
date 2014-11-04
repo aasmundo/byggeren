@@ -30,6 +30,7 @@ volatile uint8_t CAN_send_ready = 0;
 int main(void)
 {
 	set_bit(DDRB,DDB0);
+	clear_bit(DDRB,DDB2);
 	SPI_master_init();
 	//SPI_transmit(0xAA);
 	USART_Init(MYUBRR);
@@ -44,7 +45,7 @@ int main(void)
 	
 	
 	message.package.id = 0x001;
-	message.package.dlc = 3;
+	message.package.dlc = 4;
 	message.package.eid = 0x0000;
 	
 	//CAN_send(message);
@@ -86,6 +87,13 @@ ISR(TIMER1_COMPA_vect)
 		{
 			toggler = 0;
 			message.package.data[2] = button_pressed;
+			if(test_bit(PINB,PINB2) == 4)
+			{
+				message.package.data[3] = 1;
+			}else
+			{
+				message.package.data[3] = 0;
+			}
 			button_pressed = 0;
 			CAN_send_ready = 1;	
 		}

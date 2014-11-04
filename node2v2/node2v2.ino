@@ -10,12 +10,15 @@ unsigned long lang = 0;
 int pos = 0;    // variable to store the servo position 
 Servo myservo;  // create servo object to control a servo 
 
+uint8_t goal = 0;
+unsigned long counter = 0;
+
 int joy_to_pos()
 {
 	CAN.receiveCANMessage(&melding,1000);
 	int temp = (int) melding.data[1];
-	Serial.print(temp);
-	Serial.print(", ");
+	//Serial.print(temp);
+	//Serial.print(", ");
 	
 	temp = temp * 36;
 
@@ -46,6 +49,22 @@ void CAN_data_printer()
 		Serial.print(": ");
 		Serial.print(melding2.data[i]);
 		Serial.println();
+	}
+}
+
+void maal()
+{
+	if(melding.data[3] == 0)
+	{
+		counter++;
+	}else
+	{
+		counter = 0;
+	}
+	if(counter == 25)
+	{
+		goal++;
+		Serial.println(goal);
 	}
 }
 
@@ -91,9 +110,11 @@ void loop()
   if(digitalRead(19)==0)
   {
 	pos = joy_to_pos();
-	Serial.println(pos);
+	//Serial.println(pos);
 	myservo.write(pos); 
+	maal();
   }
+
   
 
   
