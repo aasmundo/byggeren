@@ -774,9 +774,9 @@ void menu_init()
      49e:	89 b7       	in	r24, 0x39	; 57
      4a0:	80 64       	ori	r24, 0x40	; 64
      4a2:	89 bf       	out	0x39, r24	; 57
-	OCR1A = 50; // Set CTC compare value to 1Hz at 1MHz AVR clock, with a prescaler of 64
-     4a4:	82 e3       	ldi	r24, 0x32	; 50
-     4a6:	90 e0       	ldi	r25, 0x00	; 0
+	OCR1A = 1000 ; // Set CTC compare value to 1Hz at 1MHz AVR clock, with a prescaler of 64
+     4a4:	88 ee       	ldi	r24, 0xE8	; 232
+     4a6:	93 e0       	ldi	r25, 0x03	; 3
      4a8:	9b bd       	out	0x2b, r25	; 43
      4aa:	8a bd       	out	0x2a, r24	; 42
 	TCCR1B |= ((1 << CS10) | (1 << CS11)); // Start timer at Fcpu/64

@@ -17,7 +17,7 @@ unsigned long counter = 0;
 int motor_control(uint8_t number)
 {
 	uint8_t temp = number;
-	Serial.print(temp);
+	//Serial.print(temp);
 	if(number < 128)
 	{
 		digitalWrite(A6, HIGH);
@@ -30,8 +30,10 @@ int motor_control(uint8_t number)
 		temp = temp - 128;
 		temp += temp;
 	}
-	Serial.print(", ");
-	Serial.println(temp);
+	//Serial.print(", ");
+	//Serial.println(temp);
+	float temp2 = 0.7 * temp;
+	temp = (uint8_t) temp2;
 	max520_set_value(temp);
 }
 
@@ -136,9 +138,11 @@ void loop()
 	myservo.write(pos); 
 	maal();
 	motor_control(melding.data[0]);
+	//Serial.println(max520_get_position());
+	
   }
 	
-  
+  max520_get_position();
 
   
   
