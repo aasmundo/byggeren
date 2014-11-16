@@ -157,6 +157,12 @@
     <Compile Include="OLED.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="pong_game.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pong_game.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="rs232.c">
       <SubType>compile</SubType>
     </Compile>

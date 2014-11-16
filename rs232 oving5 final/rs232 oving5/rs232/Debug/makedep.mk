@@ -14,6 +14,8 @@ menu.c
 
 OLED.c
 
+pong_game.c
+
 rs232.c
 
 slider.c

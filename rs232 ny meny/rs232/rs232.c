@@ -24,6 +24,8 @@
 volatile long int timer = 0;
 volatile uint8_t cool_down = 0;
 volatile uint8_t dirty_display = 1;
+
+volatile uint8_t frame = 0;
 int main(void)
 {
 	set_bit(DDRB,DDB0);
@@ -48,6 +50,17 @@ int main(void)
 ISR(TIMER1_COMPA_vect)
 {
 	PORTB ^= 0x01; // Toggle the LED
+	
+	picture_print(frame);
+	printf("%i \n", frame);
+	if(frame == 1)
+	{
+		frame = 0;
+	}else
+	{
+		frame++;
+	}
+	
 	if(cool_down == 1 && timer <15)
 	{
 		timer++;
@@ -60,7 +73,7 @@ ISR(TIMER1_COMPA_vect)
 	{
 		if(dirty_display != 0)
 		{
-			picture_print(0);
+			
 			dirty_display = 0;
 		}
 		y_pos();	

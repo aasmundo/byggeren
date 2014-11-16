@@ -16,26 +16,25 @@
 #define __cplusplus
 extern "C" void __cxa_pure_virtual() {;}
 
-int motor_control(uint8_t number);
-int joy_to_pos();
-void CAN_data_printer();
-void maal();
-void joystick_printer();
 //
 //
 
-#include "C:\Program Files\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
-#include "C:\Program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\node2v2.ino"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\MCP2515.cpp"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\MCP2515.h"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\SPI.cpp"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\SPI.h"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\Servo.cpp"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\Servo.h"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\Wire.cpp"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\Wire.h"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\max520.cpp"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\max520.h"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\twi.c"
-#include "C:\Users\aasmundo\Documents\byggeren\node2v2\twi.h"
+#include "c:\Program Files\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
+#include "c:\Program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\node2v2.ino"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\MCP2515.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\MCP2515.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\SPI.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\SPI.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\Servo.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\Servo.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\Wire.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\Wire.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\max520.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\max520.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\node_com.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\node_com.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\pong.cpp"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\pong.h"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\twi.c"
+#include "C:\Users\jonkol\Documents\byggeren\node2v2\twi.h"

@@ -11,14 +11,12 @@
 #include "joystick.h"
 #include "slider.h"
 
-uint8_t left_slider_pos()
+void left_slider_pos()
 {
 	ADC_read(3);
-	return ADC_last_value(3);
 }
 
-uint8_t right_slider_pos()
+void right_slider_pos()
 {
 	ADC_read(4);
-	return ADC_last_value(4);
 }

@@ -181,7 +181,7 @@ void oled_go_to_line(uint8_t line_in)
 void oled_print_graphics(int frame)
 {
 
-			column++;
+			
 			if(column == 16)
 			{
 				column = 0;
@@ -198,5 +198,6 @@ void oled_print_graphics(int frame)
 				oled_write(pgm_read_byte(&pictures[frame][i]));
 
 			}
+			column++;
 }
 

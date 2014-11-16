@@ -20,7 +20,7 @@ void menu_init()
 {
 	TCCR1B |= (1 << WGM12); // Configure timer 1 for CTC mode
 	TIMSK |= (1 << OCIE1A); // Enable CTC interrupt
-	OCR1A = 1000 ; // Set CTC compare value to 1Hz at 1MHz AVR clock, with a prescaler of 64
+	OCR1A = 16000 ; // Set CTC compare value to 1Hz at 1MHz AVR clock, with a prescaler of 64
 	TCCR1B |= ((1 << CS10) | (1 << CS11)); // Start timer at Fcpu/64
 }
 

@@ -42,6 +42,7 @@ C_SRCS +=  \
 ../MCP2515.c \
 ../menu.c \
 ../OLED.c \
+../pong_game.c \
 ../rs232.c \
 ../slider.c \
 ../SPI.c \
@@ -62,6 +63,7 @@ joystick.o \
 MCP2515.o \
 menu.o \
 OLED.o \
+pong_game.o \
 rs232.o \
 slider.o \
 SPI.o \
@@ -75,6 +77,7 @@ joystick.o \
 MCP2515.o \
 menu.o \
 OLED.o \
+pong_game.o \
 rs232.o \
 slider.o \
 SPI.o \
@@ -88,6 +91,7 @@ joystick.d \
 MCP2515.d \
 menu.d \
 OLED.d \
+pong_game.d \
 rs232.d \
 slider.d \
 SPI.d \
@@ -101,6 +105,7 @@ joystick.d \
 MCP2515.d \
 menu.d \
 OLED.d \
+pong_game.d \
 rs232.d \
 slider.d \
 SPI.d \
@@ -118,6 +123,8 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 LIB_DEP+= 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

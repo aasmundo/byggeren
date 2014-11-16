@@ -16,6 +16,7 @@
 uint8_t *oled_settings = (uint8_t *) 0x1000;
 uint8_t *oled_display_memory = (uint8_t *) 0x1200;
 uint8_t line, column;
+volatile uint8_t *ext_ram = (uint8_t *) 0x1800; 
 /*
 volatile uint8_t *frame_buffer = (uint8_t *) 0x1800;
 */
@@ -83,6 +84,7 @@ void clear_oled()
 void oled_write(uint8_t data)
 {
 	oled_display_memory[0] = data;
+	//printf("%i \n", data);
 }
 
 void oled_char_print(char letter)
@@ -118,6 +120,118 @@ void oled_char_print(char letter)
 	}
 	
 }
+
+void oled_print_picture(uint8_t pic_num)
+{
+	hack(pic_num);
+	oled_address_reset();
+	
+	for(int j = 0; j<128; j++)
+	{
+		if(column == 16)
+		{
+			column = 0;
+			line++;
+			if(line == 8)
+			{
+				line = 0;
+			}
+			oled_set_column_address(0,127);
+			oled_set_page_address(line,7);
+		}
+		for(int i = 0; i<8; i++)
+		{
+			oled_write(ext_ram[i + (j * 8)]);
+		}
+		column++;
+	}
+	
+}
+
+
+void hack(uint8_t photo)
+{
+		int k= 0;
+		if(photo == 0)
+		{
+			for(int i = 0; i<128; i++)
+			{
+				for(int j = 0; j<8; j++)
+				{
+					ext_ram[k] = pgm_read_byte(&HS_f1[i][j]);
+					k++;
+				}
+			}
+		}else if(photo == 1)
+		{
+			for(int i = 0; i<128; i++)
+			{
+				for(int j = 0; j<8; j++)
+				{
+					ext_ram[k] = pgm_read_byte(&HS_f2[i][j]);
+					k++;
+				}
+			}
+			
+		}else if(photo == 2)
+		{
+			for(int i = 0; i<128; i++)
+			{
+				for(int j = 0; j<8; j++)
+				{
+					ext_ram[k] = pgm_read_byte(&HS_f3[i][j]);
+					k++;
+				}
+			}
+		}else if(photo == 3)
+		{
+			for(int i = 0; i<128; i++)
+			{
+				for(int j = 0; j<8; j++)
+				{
+					ext_ram[k] = pgm_read_byte(&GO_f1[i][j]);
+					k++;
+				}
+			}
+		}else if(photo == 4)
+		{
+			for(int i = 0; i<128; i++)
+			{
+				for(int j = 0; j<8; j++)
+				{
+					ext_ram[k] = pgm_read_byte(&GO_f2[i][j]);
+					k++;
+				}
+			}
+		}else if(photo == 5)
+		{
+			for(int i = 0; i<128; i++)
+			{
+				for(int j = 0; j<8; j++)
+				{
+					ext_ram[k] = pgm_read_byte(&GO_f3[i][j]);
+					k++;
+				}
+			}
+		}else if(photo == 6)
+		{
+			for(int i = 0; i<128; i++)
+			{
+				for(int j = 0; j<8; j++)
+				{
+					ext_ram[k] = pgm_read_byte(&GO_f4[i][j]);
+					k++;
+				}
+			}
+}
+		
+
+		
+		
+				
+}
+
+
 
 void oled_string_print(char* streng)
 {

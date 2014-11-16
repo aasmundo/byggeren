@@ -20,7 +20,8 @@ void oled_set_page_address(uint8_t page_start, uint8_t page_end);
 void oled_address_reset();
 void print_to_frame_buffer(uint8_t pixels, uint16_t pos);
 void print_from_frame_buffer();
-
+void oled_print_picture(uint8_t pict_num);
+void hack(uint8_t photo);
 
 
 #endif /* OLED_H_ */
