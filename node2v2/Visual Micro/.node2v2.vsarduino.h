@@ -19,8 +19,8 @@ extern "C" void __cxa_pure_virtual() {;}
 //
 //
 
-#include "c:\Program Files\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
-#include "c:\Program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
+#include "C:\Program Files\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
+#include "C:\Program Files\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Users\jonkol\Documents\byggeren\node2v2\node2v2.ino"
 #include "C:\Users\jonkol\Documents\byggeren\node2v2\MCP2515.cpp"
 #include "C:\Users\jonkol\Documents\byggeren\node2v2\MCP2515.h"

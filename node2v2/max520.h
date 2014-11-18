@@ -15,7 +15,7 @@
 
 void max520_init();
 void max520_set_value(uint8_t value);
-int16_t max520_get_position();
+int16_t motor_get_position();
 
 
 

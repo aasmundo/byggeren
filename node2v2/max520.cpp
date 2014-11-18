@@ -48,7 +48,7 @@ void max520_set_value(uint8_t value)
 	Wire.endTransmission();	
 }
 
-int16_t max520_get_position()
+int16_t motor_get_position()
 {
 	
 	digitalWrite(A2, LOW); //enable encoder output
@@ -70,21 +70,23 @@ int16_t max520_get_position()
 	digitalWrite(A3, LOW);
 	digitalWrite(A3, HIGH); //toggle reset
 	digitalWrite(A2,HIGH); //disable encoder output
-	int16_t rotations = (((int16_t) bytes[1] << 8) | (bytes[0] & 0xff));
-	//Serial.print(bytes[1]);
-	//Serial.print(" , ");
-	//Serial.print(bytes[0]);
-	//Serial.print(" , ");
+	int rotations = (((int) bytes[1] << 8) | (0xff & bytes[0]));
+	
+	//oving8
+	Serial.print("Encoder output: ");
+	Serial.print(rotations);
+	Serial.print(" , integral: ");
+	Serial.println(abs_pos);
+	
 	
 	if(rotations >15000 || rotations < -30000)
 	{
 		abs_pos += last;
-		Serial.println("shit");
+		Serial.println("unlikely value");
 	}else
 	{
 		abs_pos += (long) rotations;
 		last = rotations;
 	}
-	Serial.println(abs_pos);
 	return rotations;
 }

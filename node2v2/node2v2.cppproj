@@ -61,10 +61,10 @@
         </avrgcc.compiler.symbols.DefSymbols>
         <avrgcc.compiler.directories.IncludePaths>
           <ListValues>
-            <Value>c:\Program Files\Arduino\hardware\arduino\cores\arduino</Value>
-            <Value>c:\Program Files\Arduino\hardware\arduino\variants\mega</Value>
-            <Value>c:\Program Files\Arduino\libraries</Value>
-            <Value>c:\Program Files\Arduino\hardware\arduino\libraries</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\cores\arduino</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\variants\mega</Value>
+            <Value>C:\Program Files\Arduino\libraries</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\libraries</Value>
             <Value>C:\Program Files\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers</Value>
             <Value>C:\Users\jonkol\Documents\Arduino\libraries</Value>
             <Value>c:\program files\arduino\hardware\tools\avr\avr\include\</Value>
@@ -93,10 +93,10 @@
         </avrgcccpp.compiler.symbols.DefSymbols>
         <avrgcccpp.compiler.directories.IncludePaths>
           <ListValues>
-            <Value>c:\Program Files\Arduino\hardware\arduino\cores\arduino</Value>
-            <Value>c:\Program Files\Arduino\hardware\arduino\variants\mega</Value>
-            <Value>c:\Program Files\Arduino\libraries</Value>
-            <Value>c:\Program Files\Arduino\hardware\arduino\libraries</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\cores\arduino</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\variants\mega</Value>
+            <Value>C:\Program Files\Arduino\libraries</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\libraries</Value>
             <Value>C:\Program Files\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers</Value>
             <Value>C:\Users\jonkol\Documents\Arduino\libraries</Value>
             <Value>c:\program files\arduino\hardware\tools\avr\avr\include\</Value>
@@ -118,7 +118,7 @@
     </ToolchainSettings>
     <VisualMicroSettings>
       <VisualMicroSettings>
-        <arduino.upload.port>COM12</arduino.upload.port>
+        <arduino.upload.port>COM10</arduino.upload.port>
         <arduino.board.name>mega2560</arduino.board.name>
         <arduino.board.desc>Arduino Mega 2560 or Mega ADK</arduino.board.desc>
         <arduino.board.property_bag>name=Arduino Mega 2560 or Mega ADK
@@ -206,10 +206,10 @@ build.arch=AVR
         </avrgcc.compiler.symbols.DefSymbols>
         <avrgcc.compiler.directories.IncludePaths>
           <ListValues>
-            <Value>c:\Program Files\Arduino\hardware\arduino\cores\arduino</Value>
-            <Value>c:\Program Files\Arduino\hardware\arduino\variants\mega</Value>
-            <Value>c:\Program Files\Arduino\libraries</Value>
-            <Value>c:\Program Files\Arduino\hardware\arduino\libraries</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\cores\arduino</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\variants\mega</Value>
+            <Value>C:\Program Files\Arduino\libraries</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\libraries</Value>
             <Value>C:\Program Files\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers</Value>
             <Value>C:\Users\jonkol\Documents\Arduino\libraries</Value>
             <Value>c:\program files\arduino\hardware\tools\avr\avr\include\</Value>
@@ -238,10 +238,10 @@ build.arch=AVR
         </avrgcccpp.compiler.symbols.DefSymbols>
         <avrgcccpp.compiler.directories.IncludePaths>
           <ListValues>
-            <Value>c:\Program Files\Arduino\hardware\arduino\cores\arduino</Value>
-            <Value>c:\Program Files\Arduino\hardware\arduino\variants\mega</Value>
-            <Value>c:\Program Files\Arduino\libraries</Value>
-            <Value>c:\Program Files\Arduino\hardware\arduino\libraries</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\cores\arduino</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\variants\mega</Value>
+            <Value>C:\Program Files\Arduino\libraries</Value>
+            <Value>C:\Program Files\Arduino\hardware\arduino\libraries</Value>
             <Value>C:\Program Files\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers</Value>
             <Value>C:\Users\jonkol\Documents\Arduino\libraries</Value>
             <Value>c:\program files\arduino\hardware\tools\avr\avr\include\</Value>
@@ -263,7 +263,7 @@ build.arch=AVR
     </ToolchainSettings>
     <VisualMicroSettings>
       <VisualMicroSettings>
-        <arduino.upload.port>COM12</arduino.upload.port>
+        <arduino.upload.port>COM10</arduino.upload.port>
         <arduino.board.name>mega2560</arduino.board.name>
         <arduino.board.desc>Arduino Mega 2560 or Mega ADK</arduino.board.desc>
         <arduino.board.property_bag>name=Arduino Mega 2560 or Mega ADK

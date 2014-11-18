@@ -17,6 +17,7 @@ uint8_t *oled_settings = (uint8_t *) 0x1000;
 uint8_t *oled_display_memory = (uint8_t *) 0x1200;
 uint8_t line, column;
 volatile uint8_t *ext_ram = (uint8_t *) 0x1800; 
+
 /*
 volatile uint8_t *frame_buffer = (uint8_t *) 0x1800;
 */
@@ -51,7 +52,7 @@ void oled_init()
 		write_c(0xAF); // display on
 		clear_oled();
 		oled_address_reset();
-		printf("oled initialized \n");
+		printf("oled i\n");
 }
 /*
 void print_to_frame_buffer(uint8_t pixels, uint16_t pos)
@@ -84,15 +85,14 @@ void clear_oled()
 void oled_write(uint8_t data)
 {
 	oled_display_memory[0] = data;
-	//printf("%i \n", data);
+	
 }
 
 void oled_char_print(char letter)
 {
-	//uint16_t pixel_pos;
 	if(letter != '\n')
 	{
-		column++;
+		
 		if(column == 16)
 		{
 			column = 0;
@@ -107,15 +107,13 @@ void oled_char_print(char letter)
 		for(int i = 0; i<8; i++)
 		{
 			oled_write(pgm_read_byte(&font[(int)letter - 30][i]));
-			//pixel_pos = i + (column*8) + (line * 128);
-			//print_to_frame_buffer(pgm_read_byte(&font[(int)letter - 30][i]), pixel_pos);
-
+			
 		}
+		column++;
 	}else
 	{
 		line++;
 		column = 0;
-		//oled_set_column_address(0,127);
 		oled_go_to_line(line);
 	}
 	
@@ -152,6 +150,8 @@ void oled_print_picture(uint8_t pic_num)
 void hack(uint8_t photo)
 {
 		int k= 0;
+		
+		
 		if(photo == 0)
 		{
 			for(int i = 0; i<128; i++)
@@ -213,17 +213,7 @@ void hack(uint8_t photo)
 					k++;
 				}
 			}
-		}else if(photo == 6)
-		{
-			for(int i = 0; i<128; i++)
-			{
-				for(int j = 0; j<8; j++)
-				{
-					ext_ram[k] = pgm_read_byte(&GO_f4[i][j]);
-					k++;
-				}
-			}
-}
+		}
 		
 
 		
@@ -231,6 +221,16 @@ void hack(uint8_t photo)
 				
 }
 
+
+oled_string_print_length(char* streng, uint8_t length)
+{
+	uint8_t i = 0;
+	while(length != i)
+	{
+		oled_char_print(streng[i]);
+		i++;
+	}
+}
 
 
 void oled_string_print(char* streng)
@@ -284,6 +284,8 @@ void oled_clear_and_go_to_line(uint8_t line_in)
 	oled_set_column_address(0,127);
 	column = 0;
 }
+
+
 void oled_go_to_line(uint8_t line_in)
 {
 	line = line_in;

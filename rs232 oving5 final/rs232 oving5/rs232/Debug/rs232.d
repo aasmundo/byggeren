@@ -15,7 +15,8 @@ rs232.d rs232.o: .././rs232.c \
  c:\program\ files\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1056\avr8-gnu-toolchain\avr\include\avr\lock.h \
  c:\program\ files\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1056\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  .././uart.h .././sram_driver.h .././ADC.h .././joystick.h .././slider.h \
- .././OLED.h .././menu.h .././SPI.h .././MCP2515.h .././CAN.h
+ .././OLED.h .././menu.h .././pong_game.h .././SPI.h .././MCP2515.h \
+ .././CAN.h
 
 c:\program\ files\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1056\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -60,6 +61,8 @@ c:\program\ files\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1056\avr8-gnu-tool
 .././OLED.h:
 
 .././menu.h:
+
+.././pong_game.h:
 
 .././SPI.h:
 

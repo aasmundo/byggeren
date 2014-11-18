@@ -20,17 +20,19 @@ void pong_init()
 	myservo.attach(9);  // attaches the servo on pin 9 to the servo object
 	max520_init();
 	pinMode(15, OUTPUT);
+	digitalWrite(15, HIGH);
 	state = IN_MENU;
 }
 
 void solenoid(int fire)
 {
+	
 	if(fire != 0)
 	{
-		digitalWrite(15,HIGH);
+		digitalWrite(15,LOW);
 	}else
 	{
-		digitalWrite(15, LOW);
+		digitalWrite(15, HIGH);
 	}
 }
 
@@ -46,7 +48,8 @@ void pong_loop_this()
 	{
 		myservo.write(control(SLIDER));
 		motor_control(control(X));
-		solenoid(control(CLICK));	
+		solenoid(control(CLICK));
+		
 	}else
 	{
 		motor_control(127);
@@ -61,24 +64,20 @@ void pong_loop_this()
 
 int motor_control(uint8_t number)
 {
-	uint8_t temp = number;
+	int16_t temp = number;
 	//Serial.print(temp);
 	if(number < 128)
 	{
-		digitalWrite(A6, HIGH);
+		digitalWrite(A6, LOW);
 		temp = 127 - temp;
 		temp += temp;
 		
 	}else
 	{
-		digitalWrite(A6, LOW);
+		digitalWrite(A6, HIGH);
 		temp = temp - 128;
 		temp += temp;
 	}
-	//Serial.print(", ");
-	//Serial.println(temp);
-	float temp2 = 0.7 * temp;  //limit movement speed to 0.7 of max
-	temp = (uint8_t) temp2;
 	max520_set_value(temp);
 }
 

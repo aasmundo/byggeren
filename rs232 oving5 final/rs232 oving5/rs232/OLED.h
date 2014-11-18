@@ -22,6 +22,8 @@ void print_to_frame_buffer(uint8_t pixels, uint16_t pos);
 void print_from_frame_buffer();
 void oled_print_picture(uint8_t pict_num);
 void hack(uint8_t photo);
+oled_string_print_length(char* streng, uint8_t length);
+void oled_clear_and_go_to_line(uint8_t line_in);
 
 
 #endif /* OLED_H_ */

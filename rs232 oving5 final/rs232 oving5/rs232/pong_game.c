@@ -9,6 +9,7 @@
 
 uint8_t game_state = IN_MENU;
 long unsigned int time;
+long unsigned int last_time;
 uint16_t highscore[3] = {0};
 	
 void pong_start_game()
@@ -24,32 +25,14 @@ void pong_game_loop()
 	}else if(game_state == IN_GAME)
 	{
 		time++;
-		if(test_bit(PINB,PINB2) == 4)
+		if(test_bit(PINB,PINB2) == 0)
 		{
 			game_state = IN_MENU;
-			pong_update_highscore();
+			last_time = time;
 		}
 	}
 }
 
-void pong_update_highscore()
-{
-	uint16_t temp = 0;
-	uint16_t temp2 = 0;
-	for(int i = 0; i<3; i++)
-	{
-		if(time > highscore[i])
-		{
-			temp = highscore[i];
-			highscore[i] = time;
-		}else if(temp != 0)
-		{
-			temp2 = highscore[i];
-			highscore[i] = temp;
-			temp = temp2;
-		}
-	}
-}
 
 
 uint8_t pong_get_game_state()
@@ -60,6 +43,11 @@ uint8_t pong_get_game_state()
 uint16_t pong_get_time()
 {
 	return time;
+}
+
+uint16_t pong_get_last_time()
+{
+	return last_time;
 }
 
 uint16_t pong_get_highscore(uint8_t place) // 0= 1st, 1=2nd ...

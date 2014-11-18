@@ -31,7 +31,7 @@ uint8_t get_state()
 int control(int function) // 0 and 1 => x,y joystick,2 slider, 3, button click, 4 goal sensor
 {
 	int temp = (int) melding.data[function];
-	if(function < 2) //x or y joystick
+	if(function == 0) //x or y joystick
 	{
 		temp = temp * 36;
 
@@ -41,6 +41,9 @@ int control(int function) // 0 and 1 => x,y joystick,2 slider, 3, button click, 
 		{
 			temp = 90;
 		}
+	}else if(function == 2)
+	{
+		temp = 255 - temp;
 	}
 	return temp;  
 }

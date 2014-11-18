@@ -29,6 +29,8 @@ volatile union can_msg_t message;
 volatile uint8_t CAN_data_waiting = 0;
 volatile uint8_t CAN_send_ready = 0;
 volatile uint8_t frame = 0;
+volatile uint8_t dirty_display = 1;
+volatile unsigned long int cooldown = 0;
 
 
 int main(void)
@@ -46,6 +48,7 @@ int main(void)
 	menu_init();
 	joy_button_init();
 	CAN_init();
+	create_menu();
 
 	
 	
@@ -64,15 +67,7 @@ int main(void)
 		
 		
 		//_delay_ms(1000);
-		if(CAN_data_waiting ==1)
-		{
-			CAN_data_waiting = 0;
-			union can_msg_t temp = CAN_receive();
-			for(int i = 0; i<13;i++)
-			{
-				printf(" linje %i: %i \n",i,temp.array[i]);
-			}
-		}else if(CAN_send_ready == 1)
+		if(CAN_send_ready == 1)
 		{
 			CAN_send(message);
 			CAN_send_ready = 0;
@@ -86,16 +81,28 @@ ISR(TIMER1_COMPA_vect)
 	PORTB ^= 0x01; // Toggle the LED
 	
 	/*test */ 
-
-	oled_print_picture(frame);
-	if(frame == 2)
-	{
-		frame = 0;
-	}else
-	{
-		frame++;
-	}
 	
+	cooldown++;
+	
+	pong_game_loop();
+	
+	if(dirty_display == 1 || pong_get_game_state() == 1 || menu_dirty_disp())
+	{
+		if(dirty_display == 1)
+		{
+			dirty_display = 0;
+			
+		}
+			if(menu_is_animation() == 0)
+			{
+				what_to_print();
+			}else
+			{
+				menu_animation();
+			}
+			
+		
+	}
 	
 	if(ADC_busy() == 0)
 	{
@@ -119,7 +126,7 @@ ISR(TIMER1_COMPA_vect)
 			{
 				message.package.data[4] = 0;
 			}
-			message.package.data[5] = 1;
+			message.package.data[5] = pong_get_game_state();
 			button_pressed = 0;
 			CAN_send_ready = 1;	//gamestate
 		}
@@ -130,14 +137,35 @@ ISR(TIMER1_COMPA_vect)
 /* ADC interrupt */
 ISR(INT0_vect){
 	volatile char *ext_adc = (char *) 0x1403;
-	message.package.data[toggler] = ext_adc[0];
+	uint8_t adc_data = ext_adc[0];
+	if(toggler == 0 && pong_get_game_state() == 0 && cooldown > 15)
+	{
+		if(adc_data > 200)
+		{
+			menu_up_or_down(-1);
+			dirty_display = 1;
+			cooldown = 0;
+		}else if(adc_data < 55)
+		{
+			menu_up_or_down(1);
+			dirty_display = 1;
+			cooldown = 0;
+		}
+	}
+	message.package.data[toggler] = adc_data;
 	toggler++;
 	ADC_busy(0);
 }
 /* jOYSTICK BUTTON */
 ISR(INT1_vect){
 
-	button_pressed = 1;
+	if(cooldown > 15)
+	{
+		menu_enter();
+		button_pressed = 1;
+		dirty_display = 1;
+		cooldown = 0;
+	}
 	
 }
 
@@ -145,4 +173,10 @@ ISR(INT1_vect){
 ISR(INT2_vect){
 	CAN_data_waiting = 1;
 	
+	
+}
+
+void set_dirty_display()
+{
+	dirty_display = 1;
 }
